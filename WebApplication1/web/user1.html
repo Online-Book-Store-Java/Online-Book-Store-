@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Book Management System</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+  }
+  #logoutBtn {
+    background-color: #f44336;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  #logoutBtn:hover {
+    background-color: #d32f2f;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Welcome to Student Book Management System</h1>
+  <p>This is your dashboard. You can manage your books here.</p>
+  <ul>
+    <li>Book 1</li>
+    <li>Book 2</li>
+    <li>Book 3</li>
+    <!-- Add more books as needed -->
+  </ul>
+  <button id="logoutBtn">Logout</button>
+</div>
+<script>
+  // Logout functionality
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Perform logout actions here, such as clearing session storage or redirecting to login page
+    // For demonstration purposes, let's clear session storage and redirect to login.html
+    sessionStorage.clear(); // Clear session storage
+    window.location.href = 'login.html'; // Redirect to login page
+  });
+</script>
+</body>
+</html>

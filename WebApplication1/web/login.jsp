@@ -13,12 +13,12 @@ JOCONNECTION.rslt = JOCONNECTION.stmt.executeQuery(selectquery);
 if (JOCONNECTION.rslt.next()) {
 %>
 <script>
-alert("Record Found");
-response.sendRedirect("index2.html");
+  alert("Logging Success");
+  window.location.href = "user1.html";
 </script>
 <%} else {%>
 <script>
-alert("No Record Found, Try again");
-window.location.href="http://localhost:8080/WebApplication1/Index.html";
+alert("Logging Unsuccess, Try again");
+window.location.href = "loging.html";
 </script>
 <%}%>
