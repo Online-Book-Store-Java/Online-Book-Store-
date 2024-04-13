@@ -1,7 +1,5 @@
 <%-- 
-    Document   : checkout.jsp
-    Created on : Apr 13, 2024, 7:52:41 PM
-    Author     : USER
+
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
