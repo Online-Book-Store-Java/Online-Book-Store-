@@ -1,7 +1,5 @@
 <%-- 
-    Document   : orderConfirmation.jsp
-    Created on : Apr 13, 2024, 7:59:09 PM
-    Author     : USER
+    
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +16,7 @@
     <p>Name: <%= request.getParameter("name") %></p>
     <p>Address: <%= request.getParameter("address") %></p>
     <p>Email: <%= request.getParameter("email") %></p>
-    <p>Items Purchased: <!-- Add code to display items from the shopping cart --></p>
-    <!-- Add additional order details as needed -->
+    <p>Items Purchased: <!-- display items from the shopping cart --></p>
+    <!--  order details-->
 </body>
 </html>
