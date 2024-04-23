@@ -1,0 +1,353 @@
+<%-- 
+    Document   : Thriller
+    Created on : Apr 11, 2024, 12:03:48 PM
+    Author     : MY PC
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Online bookstore</title>
+        <style>
+           h1 {
+            background-image: url('Images/r3.jpeg');
+            background-size: cover;
+            color: white;
+            padding: 100px;
+            text-align: center;
+        }
+       
+         h4{ background-image: url('Images/b5.jpeg');
+            font-size: 30px;
+            color: black;
+            padding: 100px;
+            text-align: center;
+        }  
+          body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   }
+
+  header {
+    background-color: brown;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    }
+
+         h1 {
+            margin: 0;
+            color: blanchedalmond;
+            font-size: 50px;
+            text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+            font-family: Arial;
+        }
+   nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+   nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+ main {
+    padding: 20px;
+ }
+
+  section {
+    display:inline-block;
+    width:23%;
+    verticle-align:top;
+    margin-right:20px;
+ }
+
+   section h2 {
+    color: #333;
+ }
+
+.book {
+    display: inline-block;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+main {
+            padding: 20px;
+            margin-top: 20px;
+}
+   .login-button,
+        .register-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+       
+        .register-button {
+            background-color: #008CBA;
+        }
+         .view-button,
+         .addcart-button {
+            background-color: brown;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .view-button {
+            background-color: #4CAF50;
+       
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+       
+footer {
+    background-color: brown;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+
+   
+}
+ .submenu {
+            display: none;
+            position: absolute;
+            background-color: brown;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .submenu.active {
+            display: block;
+        }
+        .submenu a {
+            display: block;
+            color:whitesmoke;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+        .submenu a:hover {
+            background-color: black ;
+        }
+        </style>
+         <script>
+        function toggleSubmenu() {
+            var submenu = document.getElementById("submenu");
+            submenu.classList.toggle("active");
+        }       
+    </script>
+    </head>
+    <body>
+        <header>
+           <img src="Images/Logo.png" alt="Logo" style=" height: 50 ;width: 150px;">
+            <h1>Welcome to Readers Cafe!</h1>
+       
+        <nav>
+            <ul>
+                <li><a href ="Homepage.jsp">Home</a></li>
+                <li><a href="#" onclick="toggleSubmenu()">Browse Books</a>
+                    <ul id="submenu" class="submenu">
+                        <li><a href="browse.jsp?category=fiction">Scientific Fiction & Fantasy</a></li>
+                        <li><a href="browse.jsp?category=non-fiction">Mystery & Thriller</a></li>
+                        <li><a href="browse.jsp?category=biography">Romance</a></li>
+                         <li><a href="browse.jsp?category=biography">Children's Books</a></li>
+                        <li><a href="browse.jsp?category=biography">Biography & Memoir</a></li>
+                       
+                    </ul>
+                </li>
+                   
+                </li>
+               
+              <li><a href ="Cart.jsp">View Cart</a></li>
+                <li><a href ="aboutus.jsp">About Us</a></li>
+                <li><a href ="admin.jsp">Admin Dashboard</a></li>
+               <a href="login.jsp"><button class="login-button">Login</button></a>
+               <a href="register.jsp"><button class="register-button">Register</button></a>
+               
+                </ul>
+        </nav>
+        </header>
+    <center>
+        <h4>Welcome to Mystery And Thriller page</h4> <center>
+    <center>
+        <main>
+             <div id="myModal" class="modal">
+            <div class="modal-content">
+                <p id="popupText"></p>
+                <button class="button" onclick="closeModal()">Close</button>
+            </div>
+            </div>
+        </main>
+         <script>
+        function showPopup(details) {
+            document.getElementById("popupText").textContent = details;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+        }
+        </script>
+        
+            <section>            
+                <div class="book">
+                    <img src="Images/G.jpeg" alt="gh">
+                    <h3> Ghost Bae</h3>
+                    <p>Available</p>
+                    <p>Author:Katie Smith</p>
+                    <p>Price: $5.20</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('Ghost Bae: Katie smith,ghost bae is a captivating mystery book that follows Emily,an amateur investigator, as she investigates a haunting ghostly apparition in a small hamlet.')">View Details</button>
+                   
+                    </div>
+              </section>
+             
+            <section>                
+                <div class="book">
+                    <img src="Images/8.jpeg" alt="h" >
+                    <h3>Hollow Creek</h3>
+                    <p>Available</p>
+                    <p>Author: John Smith</p>
+                    <p>Price: $3.10</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                   <button class="view-button" onclick="showPopup('Hollow Creek: John Smith,Hollow Creek is a John Smith mystery novel,where Detective Jake investigates a girl ,disappearance, uncovering a web of lies and secrets .')">View Details</button>
+                    </div>
+            </section>
+             
+            <section>               
+                 <div class="book">
+                    <img src="Images/5.jpeg" alt="hj">
+                    <h3> Down To Deep</h3>
+                    <p>Available</p>
+                    <p>Author:John Smith</p>
+                    <p>Price: $4.29</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('Down To Deep: John Smith, by John Smith is a captivating mystery set in a small coastal town,, where Detective Sarah must uncover deceit ,betrayal, and community scandals .')">View Details</button>
+                    </div>
+            </section>
+            
+            <section>              
+                 <div class="book">
+                    <img src="Images/4.jpeg" alt="hj">
+                    <h3> Dream Chaser</h3>
+                    <p>Available</p>
+                    <p>Author: John Smith</p>
+                    <p>Price: $2.95</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('Dream Chaser: John Smith, by John Smith is a captivating mystery set ,in a bustling metropolis where private investigator Mark investigates cases involving strange dreams, ,, blurring the lines between reality and the subconscious .')">View Details</button>
+                    </div>
+            </section>
+            
+            <section>                
+                 <div class="book">
+                    <img src="Images/9.jpeg" alt="gh">
+                    <h2></h2>
+                    <h3> The haunting Hour</h3>
+                    <p>Available</p>
+                    <p>Author: Julie Hendriks</p>
+                    <p>Price: $7.43</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('The haunting Hour:Julie Hendriks,by Julie Hendriks is a chilling mystery set in a quaint countryside village ,where young librarian Sarah uncovers a diary detailing the village dark past .')">View Details</button>
+                    
+                    </div>
+                        </section>
+            
+            <section>              
+                 <div class="book">                                      
+                    <img src="Images/7.jpeg" alt="h">
+                    <h3> The Moon Castles</h3>
+                    <p>Available</p>
+                    <p>Author: Joan Smith</p>
+                    <p>Price: $3.15</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('The Moon Castles: Joan Smith,is a captivating mystery set in an ancient European castle,where art historian Emma uncovers a centuries-old conspiracy ,deception, betrayal, and family secrets .')">View Details</button>
+                    </div>
+                        </section>
+            
+            <section>               
+                 <div class="book">                                       
+                    <img src="Images/3.jpeg" alt="hj">
+                    <h3> The Chamber</h3>
+                    <p>Available</p>
+                    <p>Author: John Smith</p>
+                    <p>Price: $9.25</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('The Chamber: John Smith, is a suspenseful mystery by Joan Smith, set in a prestigious law firm where lawyer Rachel defends a high-profile client , uncovering a labyrinth of deceit and corruption.')">View Details</button>
+                    </div>
+                        </section>
+            
+            <section>                
+                 <div class="book">                
+                    <img src="Images/zr.jpeg" alt="hj">
+                    <h3> Zone</h3>
+                    <p>Available</p>
+                    <p>Author: John Smith</p>
+                    <p>Price: $6.95</p>
+                    <a href="addcart.jsp"><button class="addcart-button">Add to Cart</button></a>
+                    <button class="view-button" onclick="showPopup('Zone: John Smith,is a thrilling post-apocalyptic mystery where former detective Jack searches for a missing child in a quarantined zone , highlighting survival, redemption, and hope resilience.')">View Details</button>
+                    </div>
+                        </section>
+    </center>
+            </main>
+        <footer>
+            <p> All rights reserved &COPY;2024 Online Bookstore</p>
+        </footer>
+  </body>
+</html>
+        
+            
+       
