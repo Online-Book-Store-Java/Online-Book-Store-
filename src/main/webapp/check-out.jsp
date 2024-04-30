@@ -68,8 +68,25 @@
                 <% } %>
             </div>
             <div class="col-md-6">
-                <!-- Payment form goes here -->
-                <!-- You can add form fields for collecting payment information -->
+                <h2>Payment Form</h2>
+    <form action="/process_payment" method="POST">
+        <label for="cardholder_name">Cardholder Name:</label><br>
+        <input type="text" id="cardholder_name" name="cardholder_name" required><br>
+        
+        <label for="card_number">Card Number:</label><br>
+        <input type="text" id="card_number" name="card_number" required><br>
+        
+        <label for="expiry_date">Expiry Date:</label><br>
+        <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required><br>
+        
+        <label for="cvv">CVV:</label><br>
+        <input type="text" id="cvv" name="cvv" required><br>
+        
+        <label for="amount">Amount:</label><br>
+        <input type="text" id="amount" name="amount" required><br>
+        
+        <button type="submit">Submit Payment</button>
+    </form>
             </div>
         </div>
         <div class="text-end mt-3">
