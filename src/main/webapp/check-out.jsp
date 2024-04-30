@@ -1,63 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="online.book.model.User" %>
 <%@ page import="java.util.*" %>
-<%@ page import="online.book.model.*" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="online.book.connection.Dbcon" %>
 <%@ page import="online.book.dao.orderdao" %>
+<%@ page import="online.book.model.cart" %>
+<%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+    
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth != null){
+        request.setAttribute("auth", auth);
+    }
+
+    ArrayList<cart> cart_list = (ArrayList<cart>) session.getAttribute("cart-list");
+    Double total = (Double) request.getAttribute("total");
+    if (total != null) {
+        request.setAttribute("total", total);
+    }
+%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Orders</title>
-<%@include file="includes/head.jsp" %>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <%@include file="includes/head.jsp" %>
 </head>
 <body>
-<%@include file="includes/nav.jsp" %>
-
-    <h2>Checkout</h2>
-    <div>
-        <!-- Your checkout form goes here -->
-        <form action="process_checkout.jsp" method="post">
-            <!-- Billing address fields -->
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required><br><br>
-            
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" required></textarea><br><br>
-            
-            <label for="pincode">Pin Code:</label>
-            <input type="text" id="pincode" name="pincode" required><br><br>
-            
-            <label for="addressType">Select Address Type:</label>
-            <select id="addressType" name="addressType" required>
-                <option value="Home">Home</option>
-                <option value="Office">Office</option>
-                <option value="Commercial">Commercial</option>
-            </select><br><br>
-            
-            <!-- Payment mode selection -->
-            <label for="payment">Select Payment Mode:</label>
-            <select id="payment" name="payment" required>
-                <option value="COD">Cash on Delivery</option>
-                <option value="Credit Card">Credit Card</option>
-                <option value="Debit Card">Debit Card</option>
-                <option value="Online Banking">Online Banking</option>
-                <option value="UPI Id">UPI Id</option>
-            </select><br><br>
-            
-            <!-- Hidden input field for payment ID -->
-            <input type="hidden" name="payment_id" value="<%= paymentId %>" />
-            
-            <!-- Submit button -->
-            <input type="submit" value="Buy Products">
-        </form>
+    <%@include file="includes/nav.jsp" %>
+    
+    <div class="container">
+        <div class="card-header my-3">Checkout</div>
+        <div class="alert alert-info">Please enter your payment information to complete the order.</div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Order Summary</h4>
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                            if (cart_list != null) {
+                                for (cart c : cart_list) {
+                                    if (c != null) { // Check if cart object is not null
+                        %>
+                                        <tr>
+                                            <td><%= c.getName() %></td>
+                                            <td><%= c.getQuantity() %></td>
+                                            <td>$ <%= dcf.format(c.getPrice()) %></td>
+                                        </tr>
+                        <% 
+                                    }
+                                }
+                            } 
+                        %>
+                    </tbody>
+                </table>
+                <% if (total != null) { %>
+                    <h5>Total: $ <%= dcf.format(total) %></h5>
+                <% } %>
+            </div>
+            <div class="col-md-6">
+                <!-- Payment form goes here -->
+                <!-- You can add form fields for collecting payment information -->
+            </div>
+        </div>
+        <div class="text-end mt-3">
+            <a href="orderController?action=placeOrder" class="btn btn-primary">Place Order</a>
+        </div>
     </div>
+
+    <%@include file="includes/footer.jsp" %>
 </body>
 </html>
