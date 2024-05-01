@@ -50,7 +50,6 @@ if (!products.isEmpty()) {
             <h6 class="Category"><%= p.getCategory() %></h6>
             <div class="mt-3 d-flex justify-content-between">
               <a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark">Add to Cart</a>
-              <a href="order-now?quantity=1andid=<%= p.getId() %>" class="btn btn-primary">Buy Now</a>
             </div>
           </div>
         </div>
