@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url(‘https://fonts.googleapis.com/css?family=Poppins’);
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Jersey+20+Charted&family=Rock+Salt&display=swap');
 
 body.mystery-page {
   background-image: url("Images/Mystery.jpg"); 
@@ -8,33 +10,64 @@ body.mystery-page {
   background-attachment: fixed;
 }
 
-form {
+body.fantasy-page {
+  background-image: url("Images/fantasy.jpg"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
+body.children-page {
+  background-image: url("Images/children.jpg"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
+h1  {
+font-family: "Rock Salt", cursive;
+font-weight: 400;
+font-size: 80px;
+text-shadow: 8px 8px 10px #000000;
+color: #e1a268;
+}
+
+
+.form {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-form {
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #0C4160;
-
+    min-height: fit-content;
     padding: 30px 10px;
 }
 
+
+
 .card {
     max-width: 500px;
+    max-height: 600px;
     margin: auto;
     color: black;
     border-radius: 20 px;
 }
 
+.card.px-4 {
+  margin-bottom: 20px;
+}
+
+
+
 p {
     margin: 0px;
 }
+
 
 .container .h8 {
     font-size: 30px;
@@ -43,6 +76,20 @@ p {
 }
 
 .btn.btn-primary {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+}
+
+.table table-light {
     width: 100%;
     height: 70px;
     display: flex;
@@ -72,7 +119,7 @@ p {
 
 .form-control {
     color: white;
-    background-color: #223C60;
+    background-color: #1d7384;
     border: 2px solid transparent;
     height: 60px;
     padding-left: 20px;
@@ -95,3 +142,6 @@ p {
     font-size: 14px;
     font-weight: 600;
 }
+
+
+
