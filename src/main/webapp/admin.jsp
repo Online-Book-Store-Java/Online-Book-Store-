@@ -6,7 +6,18 @@
     <%@page import="online.book.connection.Dbcon"%>
     <%@page import="online.book.dao.orderdao"%>
      <%
-
+     User auth =(User) request.getSession().getAttribute("auth");
+     List<order> orders = null;
+     
+    if(auth!=null){
+    	
+    	request.setAttribute("auth",auth);
+    	
+    	 orders = new orderdao(Dbcon.getConnection()).userorders(auth.getId());
+    	
+    }else{
+    	response.sendRedirect("login.jsp");
+    }
     
     %>
 <!DOCTYPE html>
