@@ -1,6 +1,13 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
+body.mystery-page {
+  background-image: url("Images/Mystery.jpg"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
 form {
     margin: 0;
     padding: 0;
