@@ -28,11 +28,13 @@
 <meta charset="UTF-8">
 <title>Mystery and Thriller</title>
 <%@include file="includes/head.jsp" %>
+    <link rel="stylesheet" href="CSS.css">
 </head>
-<body>
+<body class="mystery-page">
 <%@include file="includes/nav.jsp" %>
 
 <div class="container">
+<div class="Mystery">
 <div class="card-header my-3">Mystery and Thriller</div>
 <div class="row">
 
@@ -61,6 +63,7 @@ if (!products.isEmpty()) {
 } // End of outer if statement
 %>
 
+</div>
 </div>
 </div>
 <%@include file="includes/footer.jsp" %>
