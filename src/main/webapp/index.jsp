@@ -1,8 +1,8 @@
-<%@page import="online.book.dao.productDao" %>
+<%@page import="onilne.book.dao.productDao" %>
 <%@page import="java.util.List" %>
 <%@page import="java.util.*" %>
-<%@page import="online.book.connection.Dbcon" %>
-<%@page import="online.book.model.*"%>
+<%@page import="onilne.book.connection.Dbcon" %>
+<%@page import="onilne.book.model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -39,20 +39,34 @@
 <%
 if(!products.isEmpty()){
 	for(product p:products){%>
-		<div class="col-md-3 my-3">
-		<div class="card w-100" style="width: 18rem;">
-		  <img class="card-img-top" src="<%=p.getImage() %>" alt="Card image cap">
-		  <div class="card-body">
-		    <h5 class="card-title"><%=p.getName() %></h5>
-		    <h6 class="price">Price: <%=p.getPrice() %></h6>
-		     <h6 class="Category"><%=p.getCategory() %></h6>
-		     <div class="mt-3 d-flex justify-content-between">
-			    <a href="add-to-cart?id=<%=p.getId() %>" class="btn btn-dark">Add to Cart</a>
-			    <a href="order-now?quantity=1&id=<%=p.getId()  %>" class="btn btn-primary">Buy Now</a>
-		     </div>
-		  </div>
-		</div>
-		</div>
+	
+	
+	<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="<%=p.getImage() %>"></div>
+                <div class="col-md-6 mt-1">
+                    <h5><%=p.getName() %></h5>
+                    <br>
+                    <h6 class="text-justify text-truncate para mb-0"><%=p.getCategory() %><br><br></h6>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">$<%=p.getPrice() %></h4>
+                    </div>
+                    <h6 class="text-success">Free shipping</h6>
+                    <div class="d-flex flex-column mt-4">
+                    <a href="order-now?quantity=1&id=<%=p.getId()  %>"  class="btn btn-primary btn-sm" type="button">Buy Now</a>
+                    <a href="add-to-cart?id=<%=p.getId() %>" class="btn btn-outline-primary btn-sm mt-2" type="button">Add to Cart</a>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	
+		
 <% }
 }
 %>
