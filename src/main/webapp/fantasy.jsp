@@ -29,8 +29,9 @@
 <title>Fantasy</title>
 <%@include file="includes/head.jsp" %>
 </head>
-<body>
+<body class="fantasy-page">
 <%@include file="includes/nav.jsp" %>
+    <link rel="stylesheet" href="CSS.css">
 
 <div class="container">
 <div class="card-header my-3">Fantasy</div>
@@ -50,7 +51,6 @@ if (!products.isEmpty()) {
             <h6 class="Category"><%= p.getCategory() %></h6>
             <div class="mt-3 d-flex justify-content-between">
               <a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark">Add to Cart</a>
-              <a href="order-now?quantity=1andid=<%= p.getId() %>" class="btn btn-primary">Buy Now</a>
             </div>
           </div>
         </div>
